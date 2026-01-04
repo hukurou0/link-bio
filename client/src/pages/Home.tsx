@@ -34,7 +34,12 @@ export default function Home() {
         {/* Youtube Section */}
         <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           <h2 className="text-sm font-medium mb-3 text-foreground/80">Youtube</h2>
-          <div className="bg-card rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
+          <a
+            href="https://www.youtube.com/@engineer-tamariba"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+          >
             <div className="w-full h-40 bg-white flex items-center justify-center p-6">
               <img
                 src="/images/youtube-logo.png"
@@ -42,16 +47,11 @@ export default function Home() {
                 className="max-w-full max-h-full object-contain"
               />
             </div>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 bg-[#FFE4E6] text-[#BE123C] hover:bg-[#FECDD3] transition-colors duration-200"
-            >
+            <div className="flex items-center justify-center gap-2 py-3 bg-[#FFE4E6] text-[#BE123C]">
               <Youtube className="w-5 h-5" />
               <span className="font-medium text-sm">エンジニアのたまり場</span>
-            </a>
-          </div>
+            </div>
+          </a>
         </section>
 
         {/* SNS Section */}
