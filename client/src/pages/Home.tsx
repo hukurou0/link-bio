@@ -60,7 +60,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3">
             {/* X (formerly Twitter) */}
             <a
-              href="https://x.com/huku_engineer"
+              href="https://x.com/huku_developer"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#F5F5F5] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 block"
@@ -71,24 +71,24 @@ export default function Home() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                 </div>
-                <p className="text-xs text-[#525252]">@huku_engineer</p>
+                <p className="text-xs text-[#525252]">@huku_developer</p>
               </div>
             </a>
 
             {/* LinkedIn */}
-            <div className="bg-[#DBEAFE] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
-              <a
-                href="https://www.linkedin.com/in/%E5%BA%B7%E4%BB%8B-%E7%A6%8F%E5%B3%B6-548b362a1/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center text-center h-full"
-              >
-                <div className="w-12 h-12 bg-[#0A66C2] rounded-full flex items-center justify-center mb-3 shadow-md">
-                  <Linkedin className="w-6 h-6 text-white" fill="white" />
-                </div>
-                <p className="text-xs text-[#1E40AF]">@huku_engineer</p>
-              </a>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/%E5%BA%B7%E4%BB%8B-%E7%A6%8F%E5%B3%B6-548b362a1/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F5F5F5] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 block"
+            >
+              <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-[#0A66C2] rounded-full flex items-center justify-center mb-3 shadow-md">
+                    <Linkedin className="w-6 h-6 text-white" fill="white" />
+                  </div>
+                <p className="text-xs text-[#525252]">@福島康介</p>
+              </div>
+            </a>
           </div>
         </section>
 
