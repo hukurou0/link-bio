@@ -129,14 +129,19 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="text-center text-xs text-muted-foreground mt-12 pb-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <p className="mb-2">
-            Bento を使って、あなただけのリンクインバイオを作成しましょう
-          </p>
-          <div className="flex items-center justify-center gap-1 text-[10px] opacity-60">
-            <span>Made with</span>
-            <span className="font-semibold">Bento</span>
-          </div>
+        <footer className="text-center mt-12 pb-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div className="w-16 h-px bg-foreground/10 mx-auto mb-6"></div>
+          <a
+            href="https://x.com/huku_developer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors duration-200"
+          >
+            <svg className="w-4 h-4 text-foreground/60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span className="text-xs text-foreground/60">ご連絡はDMからお願いします</span>
+          </a>
         </footer>
       </div>
     </div>
