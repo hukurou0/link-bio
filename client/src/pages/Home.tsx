@@ -27,7 +27,7 @@ export default function Home() {
             フク
           </h1>
           <p className="text-muted-foreground text-sm">
-            4技能はバランスよくをモットーに
+            AI技術にベットするエンジニア
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
             {/* LinkedIn */}
             <div className="bg-[#DBEAFE] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
               <a
-                href="https://linkedin.com/in/huku_engineer"
+                href="https://www.linkedin.com/in/%E5%BA%B7%E4%BB%8B-%E7%A6%8F%E5%B3%B6-548b362a1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center text-center h-full"
