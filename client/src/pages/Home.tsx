@@ -7,7 +7,7 @@
  * - Poppins for headlines, Inter for body
  */
 
-import { Youtube, Linkedin, FileText, BookOpen } from "lucide-react";
+import { Youtube, Linkedin, PenLine, Presentation } from "lucide-react";
 
 export default function Home() {
   return (
@@ -92,37 +92,37 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 記事・資料資料 Section */}
+        {/* 記事・資料 Section */}
         <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">記事・資料資料</h2>
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">記事・登壇資料</h2>
           <div className="grid grid-cols-2 gap-3">
-            {/* Zenn */}
+            {/* note */}
             <a
-              href="https://zenn.dev/huku_engineer"
+              href="https://note.com/huku_developer"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-card rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-[#3EA8FF] rounded-full flex items-center justify-center mb-3 shadow-md">
-                  <BookOpen className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-[#41C9B4] rounded-full flex items-center justify-center mb-3 shadow-md">
+                  <PenLine className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-xs text-foreground/70">@huku_engineer</p>
+                <p className="text-xs text-foreground/70">note記事</p>
               </div>
             </a>
 
-            {/* Qiita */}
+            {/* SpeakerDeck */}
             <a
-              href="https://qiita.com/huku_engineer"
+              href="https://speakerdeck.com/huku"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-card rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-[#55C500] rounded-full flex items-center justify-center mb-3 shadow-md">
-                  <FileText className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-[#009287] rounded-full flex items-center justify-center mb-3 shadow-md">
+                  <Presentation className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-xs text-foreground/70">@huku_engineer</p>
+                <p className="text-xs text-foreground/70">登壇資料</p>
               </div>
             </a>
           </div>
