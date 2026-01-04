@@ -59,24 +59,21 @@ export default function Home() {
           <h2 className="text-sm font-medium mb-3 text-foreground/80">SNS</h2>
           <div className="grid grid-cols-2 gap-3">
             {/* X (formerly Twitter) */}
-            <div className="bg-[#F5F5F5] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
+            <a
+              href="https://x.com/huku_engineer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F5F5F5] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 block"
+            >
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mb-3 shadow-md">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                 </div>
-                <p className="text-xs text-[#525252] mb-2">@huku_engineer</p>
-                <a
-                  href="https://x.com/huku_engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs bg-black text-white px-4 py-1.5 rounded-full hover:bg-[#333333] transition-colors duration-200 font-medium"
-                >
-                  Follow
-                </a>
+                <p className="text-xs text-[#525252]">@huku_engineer</p>
               </div>
-            </div>
+            </a>
 
             {/* LinkedIn */}
             <div className="bg-[#DBEAFE] rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300">
