@@ -62,7 +62,7 @@ export default function Home() {
                 style={{ animationDuration: "0.2s" }}
               >
                 <p className="mb-2">
-                  ChatGPTの衝撃からAI技術へ注力し、株式会社OmlucにDifyリードエンジニアとして参画。事業立ち上げから売上1億円規模までの成長を技術面から牽引。
+                  ChatGPTの衝撃からAI技術へ注力し、株式会社OmlucにDifyリードエンジニアとして参画。新規事業の立ち上げから拡大フェーズまで、技術戦略と開発を主導。
                 </p>
                 <p>
                   現在は、技術の適用領域そのものに関心を移し、医療分野でソフトウェア開発に携わる。
