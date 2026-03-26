@@ -7,9 +7,13 @@
  * - Poppins for headlines, Inter for body
  */
 
-import { Youtube, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Youtube, Linkedin, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Home() {
+  const imageBase = `${import.meta.env.BASE_URL}images`;
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div className="min-h-screen py-8 px-4">
       {/* Main Container */}
@@ -18,7 +22,7 @@ export default function Home() {
         <div className="text-center mb-8 animate-fade-in">
           <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] transition-shadow duration-300">
             <img
-              src="/images/owl-avatar.png"
+              src={`${imageBase}/owl-avatar.png`}
               alt="フク"
               className="w-full h-full object-cover"
             />
@@ -26,9 +30,38 @@ export default function Home() {
           <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
             フク
           </h1>
-          <p className="text-muted-foreground text-sm">
-            AI技術にベットするエンジニア
-          </p>
+          <div className="max-w-sm mx-auto">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-sm flex items-center gap-2 mx-auto px-4 py-2 rounded-full bg-white/80 shadow-[0_4px_12px_rgb(0,0,0,0.08)] hover:shadow-[0_6px_16px_rgb(0,0,0,0.12)] hover:bg-white transition-all duration-200 border border-border/50"
+              aria-expanded={isExpanded}
+              aria-controls="profile-details"
+              type="button"
+            >
+              <span className="text-foreground/80">AI技術にベットするエンジニア</span>
+              <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                {isExpanded ? (
+                  <ChevronUp className="w-3.5 h-3.5 text-primary" />
+                ) : (
+                  <ChevronDown className="w-3.5 h-3.5 text-primary" />
+                )}
+              </div>
+            </button>
+            {isExpanded && (
+              <div
+                id="profile-details"
+                className="mt-3 p-4 bg-white/50 rounded-xl shadow-[inset_0_2px_8px_rgb(0,0,0,0.06)] text-sm text-foreground/80 leading-relaxed animate-fade-in text-center"
+                style={{ animationDuration: "0.2s" }}
+              >
+                <p className="mb-2">
+                  ChatGPTの衝撃からAI技術へ注力し、株式会社OmlucにDifyリードエンジニアとして参画。事業立ち上げから売上1億円規模までの成長を技術面から牽引。
+                </p>
+                <p>
+                  現在は、技術の適用領域そのものに関心を移し、医療分野でソフトウェア開発に携わる。
+                </p>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Youtube Section */}
@@ -42,7 +75,7 @@ export default function Home() {
           >
             <div className="w-full h-40 bg-white flex items-center justify-center p-6">
               <img
-                src="/images/youtube-logo.png"
+                src={`${imageBase}/youtube-logo.png`}
                 alt="エンジニアのたまり場"
                 className="max-w-full max-h-full object-contain"
               />
@@ -106,7 +139,7 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src="/images/note-icon.ico"
+                    src={`${imageBase}/note-icon.ico`}
                     alt="note"
                     className="w-full h-full object-cover"
                   />
@@ -125,7 +158,7 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src="/images/speakerdeck-icon.png"
+                    src={`${imageBase}/speakerdeck-icon.png`}
                     alt="SpeakerDeck"
                     className="w-full h-full object-cover"
                   />
@@ -140,6 +173,25 @@ export default function Home() {
         <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
           <h2 className="text-sm font-medium mb-3 text-foreground/80">アプリケーション</h2>
           <div className="grid grid-cols-2 gap-3">
+            {/* 定点観測 */}
+            <a
+              href="https://fixed-point-observation.hukuapp.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
+                  <img
+                    src={`${imageBase}/fixed-point-observation-icon.svg`}
+                    alt="定点観測"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/70">定点観測</p>
+              </div>
+            </a>
+
             {/* Vibe Planning */}
             <a
               href="https://vibe-planning.vercel.app/"
@@ -150,12 +202,31 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src="/images/vibe-planning-icon.ico"
+                    src={`${imageBase}/vibe-planning-icon.ico`}
                     alt="Vibe Planning"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="text-xs text-foreground/70">Vibe Planning</p>
+              </div>
+            </a>
+
+            {/* AI新聞 */}
+            <a
+              href="https://ai-news-paper.hukuapp.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
+                  <img
+                    src={`${imageBase}/ai-news-paper-icon.png`}
+                    alt="AI新聞"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/70">AI新聞</p>
               </div>
             </a>
 
@@ -169,7 +240,7 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src="/images/connect-icon.ico"
+                    src={`${imageBase}/connect-icon.ico`}
                     alt="Connect"
                     className="w-full h-full object-cover"
                   />
