@@ -8,12 +8,19 @@
  */
 
 import { useState } from "react";
-import { Youtube, Linkedin, ChevronDown, ChevronUp, Share2, X } from "lucide-react";
+import { Youtube, Linkedin, ChevronDown, ChevronUp, Share2, X, Link, Check } from "lucide-react";
 
 export default function Home() {
   const imageBase = `${import.meta.env.BASE_URL}images`;
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSocialMenuOpen, setIsSocialMenuOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyLink = async () => {
+    await navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen py-8 px-4 pb-28">
@@ -267,6 +274,20 @@ export default function Home() {
 
       <div className="fixed right-5 bottom-5 md:right-[calc(50%-15rem)] z-50">
         <div className="relative flex items-center justify-center">
+          <button
+            type="button"
+            aria-label="リンクをコピー"
+            onClick={handleCopyLink}
+            className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-foreground/60 shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-foreground/25 transition-all duration-300"
+            style={{
+              transform: isSocialMenuOpen ? "translate(-40px, -112px) scale(1)" : "translate(0, 0) scale(0.6)",
+              opacity: isSocialMenuOpen ? 1 : 0,
+              pointerEvents: isSocialMenuOpen ? "auto" : "none",
+            }}
+          >
+            {isCopied ? <Check className="h-6 w-6 text-green-500" /> : <Link className="h-6 w-6" />}
+          </button>
+
           <a
             href="https://www.linkedin.com/in/%E5%BA%B7%E4%BB%8B-%E7%A6%8F%E5%B3%B6-548b362a1/"
             target="_blank"
@@ -274,7 +295,7 @@ export default function Home() {
             aria-label="LinkedIn"
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-[#0A66C2] shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-[#0A66C2]/30 transition-all duration-300"
             style={{
-              transform: isSocialMenuOpen ? "translate(-80px, -80px) scale(1)" : "translate(0, 0) scale(0.6)",
+              transform: isSocialMenuOpen ? "translate(-90px, -65px) scale(1)" : "translate(0, 0) scale(0.6)",
               opacity: isSocialMenuOpen ? 1 : 0,
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
@@ -289,7 +310,7 @@ export default function Home() {
             aria-label="X"
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-foreground shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-foreground/25 transition-all duration-300"
             style={{
-              transform: isSocialMenuOpen ? "translate(-110px, -10px) scale(1)" : "translate(0, 0) scale(0.6)",
+              transform: isSocialMenuOpen ? "translate(-112px, -10px) scale(1)" : "translate(0, 0) scale(0.6)",
               opacity: isSocialMenuOpen ? 1 : 0,
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
