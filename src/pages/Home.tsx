@@ -7,19 +7,56 @@
  * - Poppins for headlines, Inter for body
  */
 
-import { useState } from "react";
-import { Youtube, Linkedin, ChevronDown, ChevronUp, Share2, X, Link, Check } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Youtube, Linkedin, ChevronDown, ChevronUp, Share2, X, Link } from "lucide-react";
+import QRCode from "qrcode";
+import { toast } from "sonner";
 
 export default function Home() {
   const imageBase = `${import.meta.env.BASE_URL}images`;
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSocialMenuOpen, setIsSocialMenuOpen] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
+  const [isQrOpen, setIsQrOpen] = useState(false);
+  const [qrCodeUrl, setQrCodeUrl] = useState("");
 
-  const handleCopyLink = async () => {
-    await navigator.clipboard.writeText(window.location.href);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+  useEffect(() => {
+    if (!isQrOpen) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsQrOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isQrOpen]);
+
+  const handleShareLink = async () => {
+    const currentUrl = window.location.href;
+
+    try {
+      const [generatedQrCode] = await Promise.all([
+        QRCode.toDataURL(currentUrl, {
+          width: 280,
+          margin: 1,
+          color: {
+            dark: "#0f172a",
+            light: "#ffffff",
+          },
+        }),
+        navigator.clipboard.writeText(currentUrl),
+      ]);
+
+      setQrCodeUrl(generatedQrCode);
+      setIsQrOpen(true);
+      toast.success("リンクをコピーしました");
+    } catch (error) {
+      console.error("Failed to prepare share link", error);
+      toast.error("リンクの共有に失敗しました");
+    }
   };
 
   return (
@@ -276,8 +313,8 @@ export default function Home() {
         <div className="relative flex items-center justify-center">
           <button
             type="button"
-            aria-label="リンクをコピー"
-            onClick={handleCopyLink}
+            aria-label="リンクをQR表示してコピー"
+            onClick={handleShareLink}
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-foreground/60 shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-foreground/25 transition-all duration-300"
             style={{
               transform: isSocialMenuOpen ? "translate(-40px, -112px) scale(1)" : "translate(0, 0) scale(0.6)",
@@ -285,7 +322,7 @@ export default function Home() {
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
           >
-            {isCopied ? <Check className="h-6 w-6 text-green-500" /> : <Link className="h-6 w-6" />}
+            <Link className="h-6 w-6" />
           </button>
 
           <a
@@ -331,6 +368,52 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+      {isQrOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/45 px-4 backdrop-blur-sm"
+          onClick={() => setIsQrOpen(false)}
+          role="presentation"
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="共有用QRコード"
+            className="w-full max-w-sm rounded-[2rem] bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,23,42,0.22)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-4 flex items-start justify-between gap-4 text-left">
+              <div>
+                <p className="text-lg font-semibold text-slate-900">QRコードを表示</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsQrOpen(false)}
+                aria-label="QRコードを閉じる"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-700"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="mx-auto mb-4 w-full max-w-[280px] rounded-[1.5rem] bg-slate-50 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
+              {qrCodeUrl ? (
+                <img
+                  src={qrCodeUrl}
+                  alt="現在のページへのQRコード"
+                  className="h-auto w-full rounded-xl"
+                />
+              ) : (
+                <div className="aspect-square w-full animate-pulse rounded-xl bg-slate-200" />
+              )}
+            </div>
+
+            <p className="break-all rounded-2xl bg-slate-50 px-4 py-3 text-xs leading-relaxed text-slate-500">
+              {window.location.href}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
