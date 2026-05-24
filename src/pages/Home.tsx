@@ -180,9 +180,9 @@ export default function Home() {
         <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <h2 className="text-sm font-medium mb-3 text-foreground/80">アプリケーション</h2>
           <div className="grid grid-cols-2 gap-3">
-            {/* 定点観測 */}
+            {/* Catchup */}
             <a
-              href="https://fixed-point-observation.hukuapp.net/"
+              href="https://catchup.hukuapp.net/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
@@ -190,12 +190,12 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src={`${imageBase}/fixed-point-observation-icon.svg`}
-                    alt="定点観測"
+                    src={`${imageBase}/catchup-icon.svg`}
+                    alt="Catchup"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-xs text-foreground/70">定点観測</p>
+                <p className="text-xs text-foreground/70">Catchup</p>
               </div>
             </a>
 
