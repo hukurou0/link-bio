@@ -190,7 +190,7 @@ export default function Home() {
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
                   <img
-                    src={`${imageBase}/catchup-icon.svg`}
+                    src={`${imageBase}/catchup-icon.png`}
                     alt="Catchup"
                     className="w-full h-full object-cover"
                   />
