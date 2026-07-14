@@ -130,24 +130,25 @@ export default function Home() {
           <h2 className="text-sm font-medium mb-3 text-foreground/80">
             Youtube
           </h2>
-          <a
-            href="https://www.youtube.com/@engineer-tamariba"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card rounded-2xl overflow-hidden border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+          <div
+            aria-label="エンジニアのたまり場（休止中）"
+            className="block cursor-not-allowed overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
           >
             <div className="w-full h-40 bg-white flex items-center justify-center p-6">
               <img
                 src={`${imageBase}/youtube-logo.png`}
                 alt="エンジニアのたまり場"
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain grayscale opacity-35"
               />
             </div>
-            <div className="flex items-center justify-center gap-2 py-3 bg-[#FFE4E6] text-[#BE123C]">
+            <div className="flex items-center justify-center gap-2 bg-slate-100 py-3 text-slate-500">
               <Youtube className="w-5 h-5" />
               <span className="font-medium text-sm">エンジニアのたまり場</span>
+              <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
+                休止中
+              </span>
             </div>
-          </a>
+          </div>
         </section>
 
         {/* コントリビュートOSS Section */}
