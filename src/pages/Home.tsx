@@ -8,7 +8,15 @@
  */
 
 import { useEffect, useState } from "react";
-import { Youtube, Linkedin, ChevronDown, ChevronUp, Share2, X, Link } from "lucide-react";
+import {
+  Youtube,
+  Linkedin,
+  ChevronDown,
+  ChevronUp,
+  Share2,
+  X,
+  Link,
+} from "lucide-react";
 import QRCode from "qrcode";
 import { toast } from "sonner";
 
@@ -72,7 +80,10 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          <h1
+            className="text-2xl font-bold mb-2"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
             フク
           </h1>
           <div className="max-w-sm mx-auto">
@@ -83,7 +94,9 @@ export default function Home() {
               aria-controls="profile-details"
               type="button"
             >
-              <span className="text-foreground/80">AI技術にベットするエンジニア</span>
+              <span className="text-foreground/80">
+                AI技術にベットするエンジニア
+              </span>
               <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
                 {isExpanded ? (
                   <ChevronUp className="w-3.5 h-3.5 text-primary" />
@@ -99,10 +112,10 @@ export default function Home() {
                 style={{ animationDuration: "0.2s" }}
               >
                 <p className="mb-2">
-                  ChatGPTの衝撃からAI技術へ注力し、株式会社OmlucにDifyリードエンジニアとして参画。新規事業の立ち上げから拡大フェーズまで、技術戦略と開発を主導。
+                  ChatGPTの衝撃からAI技術へ注力し、ベンチャーにDifyリードエンジニアとして参画。新規事業の立ち上げから拡大フェーズまで、技術戦略と開発を主導。
                 </p>
                 <p>
-                  今後は、技術の適用領域そのものに関心を移し、医療分野でソフトウェア開発に携わる。
+                  現在は、技術の適用領域そのものに関心を移し、医療分野でソフトウェア開発に携わる。
                 </p>
               </div>
             )}
@@ -110,8 +123,13 @@ export default function Home() {
         </div>
 
         {/* Youtube Section */}
-        <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">Youtube</h2>
+        <section
+          className="mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">
+            Youtube
+          </h2>
           <a
             href="https://www.youtube.com/@engineer-tamariba"
             target="_blank"
@@ -133,8 +151,13 @@ export default function Home() {
         </section>
 
         {/* コントリビュートOSS Section */}
-        <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">コントリビュートOSS</h2>
+        <section
+          className="mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">
+            コントリビュートOSS
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             {/* Dify */}
             <a
@@ -170,15 +193,22 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-xs text-foreground/70 font-medium">GPT-OSS</p>
+                <p className="text-xs text-foreground/70 font-medium">
+                  GPT-OSS
+                </p>
               </div>
             </a>
           </div>
         </section>
 
         {/* アプリケーション Section */}
-        <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">アプリケーション</h2>
+        <section
+          className="mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">
+            アプリケーション
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             {/* Catchup */}
             <a
@@ -259,8 +289,13 @@ export default function Home() {
         </section>
 
         {/* 記事・資料 Section */}
-        <section className="mb-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">記事・登壇資料</h2>
+        <section
+          className="mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.4s" }}
+        >
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">
+            記事・登壇資料
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             {/* note */}
             <a
@@ -303,9 +338,14 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="text-center mt-12 pb-4 animate-fade-in-up" style={{ animationDelay: "0.55s" }}>
+        <footer
+          className="text-center mt-12 pb-4 animate-fade-in-up"
+          style={{ animationDelay: "0.55s" }}
+        >
           <div className="w-16 h-px bg-foreground/10 mx-auto mb-6"></div>
-          <p className="text-xs text-foreground/50">ご連絡は右下のSNSからお願いします</p>
+          <p className="text-xs text-foreground/50">
+            ご連絡は右下のSNSからお願いします
+          </p>
         </footer>
       </div>
 
@@ -317,7 +357,9 @@ export default function Home() {
             onClick={handleShareLink}
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-foreground/60 shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-foreground/25 transition-all duration-300"
             style={{
-              transform: isSocialMenuOpen ? "translate(-40px, -112px) scale(1)" : "translate(0, 0) scale(0.6)",
+              transform: isSocialMenuOpen
+                ? "translate(-40px, -112px) scale(1)"
+                : "translate(0, 0) scale(0.6)",
               opacity: isSocialMenuOpen ? 1 : 0,
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
@@ -332,7 +374,9 @@ export default function Home() {
             aria-label="LinkedIn"
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-[#0A66C2] shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-[#0A66C2]/30 transition-all duration-300"
             style={{
-              transform: isSocialMenuOpen ? "translate(-90px, -65px) scale(1)" : "translate(0, 0) scale(0.6)",
+              transform: isSocialMenuOpen
+                ? "translate(-90px, -65px) scale(1)"
+                : "translate(0, 0) scale(0.6)",
               opacity: isSocialMenuOpen ? 1 : 0,
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
@@ -347,7 +391,9 @@ export default function Home() {
             aria-label="X"
             className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white border border-foreground/10 text-foreground shadow-[0_8px_24px_rgb(0,0,0,0.10)] hover:shadow-[0_12px_32px_rgb(0,0,0,0.14)] hover:border-foreground/25 transition-all duration-300"
             style={{
-              transform: isSocialMenuOpen ? "translate(-112px, -10px) scale(1)" : "translate(0, 0) scale(0.6)",
+              transform: isSocialMenuOpen
+                ? "translate(-112px, -10px) scale(1)"
+                : "translate(0, 0) scale(0.6)",
               opacity: isSocialMenuOpen ? 1 : 0,
               pointerEvents: isSocialMenuOpen ? "auto" : "none",
             }}
@@ -359,12 +405,18 @@ export default function Home() {
 
           <button
             type="button"
-            aria-label={isSocialMenuOpen ? "SNSメニューを閉じる" : "SNSメニューを開く"}
+            aria-label={
+              isSocialMenuOpen ? "SNSメニューを閉じる" : "SNSメニューを開く"
+            }
             aria-expanded={isSocialMenuOpen}
-            onClick={() => setIsSocialMenuOpen((open) => !open)}
+            onClick={() => setIsSocialMenuOpen(open => !open)}
             className="relative flex h-16 w-16 items-center justify-center rounded-full bg-blue-700 text-white shadow-[0_8px_24px_rgba(29,78,216,0.35)] hover:shadow-[0_12px_32px_rgba(29,78,216,0.45)] hover:bg-blue-800 hover:scale-105 transition-all duration-300"
           >
-            {isSocialMenuOpen ? <X className="h-6 w-6" /> : <Share2 className="h-6 w-6" />}
+            {isSocialMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Share2 className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
@@ -380,11 +432,13 @@ export default function Home() {
             aria-modal="true"
             aria-label="共有用QRコード"
             className="w-full max-w-sm rounded-[2rem] bg-white p-6 text-center shadow-[0_24px_80px_rgba(15,23,42,0.22)]"
-            onClick={(event) => event.stopPropagation()}
+            onClick={event => event.stopPropagation()}
           >
             <div className="mb-4 flex items-start justify-between gap-4 text-left">
               <div>
-                <p className="text-lg font-semibold text-slate-900">QRコードを表示</p>
+                <p className="text-lg font-semibold text-slate-900">
+                  QRコードを表示
+                </p>
               </div>
               <button
                 type="button"
