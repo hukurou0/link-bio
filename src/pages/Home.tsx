@@ -9,7 +9,6 @@
 
 import { useEffect, useState } from "react";
 import {
-  Youtube,
   Linkedin,
   ChevronDown,
   ChevronUp,
@@ -23,6 +22,7 @@ import { toast } from "sonner";
 export default function Home() {
   const imageBase = `${import.meta.env.BASE_URL}images`;
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isAppsExpanded, setIsAppsExpanded] = useState(false);
   const [isSocialMenuOpen, setIsSocialMenuOpen] = useState(false);
   const [isQrOpen, setIsQrOpen] = useState(false);
   const [qrCodeUrl, setQrCodeUrl] = useState("");
@@ -122,90 +122,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Youtube Section */}
-        <section
-          className="mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.1s" }}
-        >
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">
-            Youtube
-          </h2>
-          <div
-            aria-label="エンジニアのたまり場（休止中）"
-            className="block cursor-not-allowed overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
-          >
-            <div className="w-full h-40 bg-white flex items-center justify-center p-6">
-              <img
-                src={`${imageBase}/youtube-logo.png`}
-                alt="エンジニアのたまり場"
-                className="max-w-full max-h-full object-contain grayscale opacity-35"
-              />
-            </div>
-            <div className="flex items-center justify-center gap-2 bg-slate-100 py-3 text-slate-500">
-              <Youtube className="w-5 h-5" />
-              <span className="font-medium text-sm">エンジニアのたまり場</span>
-              <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
-                休止中
-              </span>
-            </div>
-          </div>
-        </section>
-
-        {/* コントリビュートOSS Section */}
-        <section
-          className="mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <h2 className="text-sm font-medium mb-3 text-foreground/80">
-            コントリビュートOSS
-          </h2>
-          <div className="grid grid-cols-2 gap-3">
-            {/* Dify */}
-            <a
-              href="https://github.com/langgenius/dify"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
-                  <img
-                    src={`${imageBase}/dify-logo.png`}
-                    alt="Dify"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-xs text-foreground/70 font-medium">Dify</p>
-              </div>
-            </a>
-
-            {/* GPT-OSS */}
-            <a
-              href="https://github.com/openai/gpt-oss"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
-                  <img
-                    src={`${imageBase}/openai-logo.png`}
-                    alt="GPT-OSS"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-xs text-foreground/70 font-medium">
-                  GPT-OSS
-                </p>
-              </div>
-            </a>
-          </div>
-        </section>
-
         {/* アプリケーション Section */}
         <section
           className="mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.3s" }}
+          style={{ animationDelay: "0.1s" }}
         >
           <h2 className="text-sm font-medium mb-3 text-foreground/80">
             アプリケーション
@@ -286,7 +206,13 @@ export default function Home() {
                 <p className="text-xs text-foreground/70">AI新聞</p>
               </div>
             </a>
-
+          </div>
+          <div
+            id="more-apps"
+            className={
+              isAppsExpanded ? "grid grid-cols-2 gap-3 mt-3" : "hidden"
+            }
+          >
             {/* Connect */}
             <a
               href="https://www.universitytask.link/"
@@ -306,12 +232,26 @@ export default function Home() {
               </div>
             </a>
           </div>
+          <button
+            type="button"
+            onClick={() => setIsAppsExpanded(expanded => !expanded)}
+            aria-expanded={isAppsExpanded}
+            aria-controls="more-apps"
+            className="mt-3 flex items-center gap-1 mx-auto px-4 py-2 rounded-full bg-white/80 border border-border/50 text-sm text-foreground/80 shadow-[0_4px_12px_rgb(0,0,0,0.08)] hover:bg-white transition-colors"
+          >
+            {isAppsExpanded ? "閉じる" : "もっと見る"}
+            {isAppsExpanded ? (
+              <ChevronUp className="w-4 h-4" />
+            ) : (
+              <ChevronDown className="w-4 h-4" />
+            )}
+          </button>
         </section>
 
         {/* 記事・資料 Section */}
         <section
           className="mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.4s" }}
+          style={{ animationDelay: "0.2s" }}
         >
           <h2 className="text-sm font-medium mb-3 text-foreground/80">
             記事・登壇資料
@@ -352,6 +292,57 @@ export default function Home() {
                   />
                 </div>
                 <p className="text-xs text-foreground/70">登壇資料</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        {/* コントリビュートOSS Section */}
+        <section
+          className="mb-8 animate-fade-in-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <h2 className="text-sm font-medium mb-3 text-foreground/80">
+            コントリビュートOSS
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Dify */}
+            <a
+              href="https://github.com/langgenius/dify"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
+                  <img
+                    src={`${imageBase}/dify-logo.png`}
+                    alt="Dify"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/70 font-medium">Dify</p>
+              </div>
+            </a>
+
+            {/* GPT-OSS */}
+            <a
+              href="https://github.com/openai/gpt-oss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
+                  <img
+                    src={`${imageBase}/openai-logo.png`}
+                    alt="GPT-OSS"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/70 font-medium">
+                  GPT-OSS
+                </p>
               </div>
             </a>
           </div>
