@@ -211,6 +211,25 @@ export default function Home() {
             アプリケーション
           </h2>
           <div className="grid grid-cols-2 gap-3">
+            {/* CVE漫画 */}
+            <a
+              href="https://cve-manga.hukuapp.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card rounded-2xl p-4 border border-foreground/5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden mb-3 shadow-md">
+                  <img
+                    src={`${imageBase}/cve-manga-icon.png`}
+                    alt="CVE漫画"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/70">CVE漫画</p>
+              </div>
+            </a>
+
             {/* Catchup */}
             <a
               href="https://catchup.hukuapp.net/"
